@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
-import { logo, menu, close } from '../assets'
+import { logo, menu, close, arrowUp, arrowDown, toDoList } from '../assets'
 
 
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
+    const [toggleToDo, setToggleToDo] = useState(false)
+    const [arrowDirection, setSetArrowDirection] = useState(false)
+
   return (
     <nav className='flex justify-between items-center font-poppins'>
         <div className='justify-evenly items-center sm:flex hidden'>
@@ -40,12 +43,29 @@ const Navbar = () => {
             flex-col`}
             > 
                 <ul className='flex flex-col gap-5 text-white'>
-                        <li>Features</li> 
+                        <li className='flex flex-col'>
+                            <div className='flex items-center'> 
+                                Features
+                                <img 
+                                src={arrowDirection ? arrowDown : arrowUp} 
+                                className='w-2 h-2 ml-1 white--arrow'
+                                onClick={() => setSetArrowDirection((prev) => !prev)}
+                                />
+                            </div>                                   
+                            {arrowDirection && (
+                            <div className='flex items-center ml-7'>
+                                <div className='flex flex-row items-center  '>                                    
+                                    <img className='w-4 h-4 mr-2' 
+                                    alt="to do icon" src={toDoList} /> <li>Todo List</li>
+                                </div>
+                            </div>
+                            )}
+                        </li> 
                         <li>Company</li> 
                         <li>Careers</li> 
                         <li>About</li> 
                 </ul> 
-                <ul className='flex flex-col text-white gap-5 mt-10'>
+                <ul className='flex flex-col items-start text-white gap-5 mt-10'>
                     <li>Login</li>
                     <button>Register</button>
                  </ul>
