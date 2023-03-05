@@ -1,12 +1,59 @@
 import React, { useState } from 'react'
-import { logo, menu, close, arrowUp, arrowDown, toDoList } from '../assets'
+import { logo, menu, close, arrowUp, arrowDown, toDoList, calendar, reminders, planning  } from '../assets'
 
+const DropDown = () => {
+    const [arrowDirection, setSetArrowDirection] = useState(false)
+    return (
+        <ul className='flex flex-col gap-5 text-white'>
+            <li className='flex flex-col'>
+                                    <div className='flex items-center'> 
+                                        Features
+                                        <img 
+                                        src={arrowDirection ? arrowDown : arrowUp} 
+                                        className='w-2 h-2 ml-1 white--arrow'
+                                        onClick={() => setSetArrowDirection((prev) => !prev)}
+                                        />
+                                    </div>                                   
+                                    {arrowDirection && (
+                                    <div className='flex flex-col  ml-7'>
+                                        <div className='flex flex-row items-center  '>                                    
+                                            <img className='w-4 h-4 mr-2' 
+                                            alt="to do icon" src={toDoList} /> 
+                                            <p>Todo List</p>
+                                        </div>
+                                        <div className='flex flex-row items-center  '>                                    
+                                            <img className='w-4 h-4 mr-2' 
+                                            alt="calendar icon" src={calendar} /> 
+                                            <p>Calendar</p>
+                                        </div>
+                                        <div className='flex flex-row items-center  '>                                    
+                                            <img className='w-4 h-4 mr-2' 
+                                            alt="reminders icon" src={reminders} /> 
+                                            <p>Reminders</p>
+                                        </div>
+                                        <div className='flex flex-row items-center  '>                                    
+                                            <img className='w-4 h-4 mr-2' 
+                                            alt="planning icon" src={planning} /> 
+                                            <p>Planning</p>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    
+                                    )}
+            </li> 
+            <li>Company</li> 
+            <li>Careers</li> 
+            <li>About</li> 
+        </ul> 
+    )
 
+}
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
     const [toggleToDo, setToggleToDo] = useState(false)
-    const [arrowDirection, setSetArrowDirection] = useState(false)
+    
 
   return (
     <nav className='flex justify-between items-center font-poppins'>
@@ -19,7 +66,7 @@ const Navbar = () => {
                     <li>Company</li> 
                     <li>Careers</li> 
                     <li>About</li> 
-                </ul>       
+            </ul>       
         </div>
         <div className='flex-row sm:flex hidden gap-8 mr-10 font-poppins items-center'>
                 <p className=''>Login</p>
@@ -42,33 +89,14 @@ const Navbar = () => {
             mx-4 my-2 min-w-[140px] rounded-xl sidebar
             flex-col`}
             > 
-                <ul className='flex flex-col gap-5 text-white'>
-                        <li className='flex flex-col'>
-                            <div className='flex items-center'> 
-                                Features
-                                <img 
-                                src={arrowDirection ? arrowDown : arrowUp} 
-                                className='w-2 h-2 ml-1 white--arrow'
-                                onClick={() => setSetArrowDirection((prev) => !prev)}
-                                />
-                            </div>                                   
-                            {arrowDirection && (
-                            <div className='flex items-center ml-7'>
-                                <div className='flex flex-row items-center  '>                                    
-                                    <img className='w-4 h-4 mr-2' 
-                                    alt="to do icon" src={toDoList} /> <li>Todo List</li>
-                                </div>
-                            </div>
-                            )}
-                        </li> 
-                        <li>Company</li> 
-                        <li>Careers</li> 
-                        <li>About</li> 
-                </ul> 
-                <ul className='flex flex-col items-start text-white gap-5 mt-10'>
-                    <li>Login</li>
-                    <button>Register</button>
-                 </ul>
+                
+            <DropDown />
+                        
+                        
+            <ul className='flex flex-col items-start text-white gap-5 mt-10'>
+                <li>Login</li>
+                <button>Register</button>
+            </ul>
             </div>
 
         </div>   
