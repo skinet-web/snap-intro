@@ -108,7 +108,7 @@ const Navbar = () => {
             />
           
         </div>
-        <div className='flex-row sm:flex hidden gap-8 mr-10 font-poppins items-center'>
+        <div className='flex-row md:flex hidden gap-8 mr-10 font-poppins items-center'>
                 <button className=''>Login</button>
                 <button className='border-2 rounded-xl border-black p-2'>Register</button>
         </div>
