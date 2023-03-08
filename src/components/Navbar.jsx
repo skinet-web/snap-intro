@@ -108,7 +108,7 @@ const Navbar = () => {
             />
           
         </div>
-        <div className='flex-row md:flex hidden gap-8 mr-10 font-poppins items-center'>
+        <div className='flex-row  sm:flex hidden gap-8 mr-10 font-poppins items-center'>
                 <button className=''>Login</button>
                 <button className='border-2 rounded-xl border-black p-2'>Register</button>
         </div>
@@ -134,14 +134,14 @@ const Navbar = () => {
                     > 
                         
                     <DropDown 
-                    className='flex flex-col gap-5 text-white'
+                    className='flex flex-col ml-2 gap-5 text-white'
                     navbar = 'flex flex-col  ml-7'
                     />
                                 
                                 
                     <ul className='flex flex-col items-start text-white gap-5 mt-10'>
-                        <li>Login</li>
-                        <button>Register</button>
+                        <li className = 'ml-2' >Login</li>
+                        <button className='border-2 rounded-xl border-white p-2'>Register</button>
                     </ul>
                 </div>
 
